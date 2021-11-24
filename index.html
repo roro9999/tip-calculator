@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tip Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+<div class="items">
+    <p class="title" id="title" ><b>Calculate your tip</b></p>
+    <input type="text" id="ordertotal" name="ordertotal" placeholder="$ Order total" class="input"><br><br>
+    <input type="text" id="percent" name="percent" placeholder="% Percent" class="input"><br><br>
+    <button class="save" id="save" onclick="tip()">Calculate</button>
+    <hr>
+    <div class="squere">
+        <p class="title-2" id="title-2" >Tip</p>
+        <p id=tip></p>
+
+    </div>
+    <div class="squere">
+<img src = "eth.svg" width="30px" style="margin-top: 20px; margin-left: 128px;">
+<p id="ethprice"></p>
+
+  </div>
+</div>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll("input, select")
+const button = document.querySelector(".save")
+
+window.addEventListener("DOMContentLoaded", () => {
+  inputs.forEach(input => get(input.id))
+})
+
+button.addEventListener("click", () => {
+  inputs.forEach(input => save(input.id))
+})
+
+function save(id) {
+  const input = document.getElementById(id)
+  const value = input.value
+  const storedInputs = JSON.parse(localStorage.getItem("inputs"))
+  localStorage.setItem("inputs", JSON.stringify({ ...storedInputs, [id]: value }))
+}
+
+function get(id) {
+  const storedInputs = JSON.parse(localStorage.getItem("inputs"))
+  const input = document.getElementById(id)
+  input.value = storedInputs[id] || ""
+}
+    </script>
+
+    <script>
+     function tip(){
+		fetch('https://api.etherscan.io/api?module=stats&action=ethprice&apikey=RYRBVKC5AZ7C39H3CJXSH2ZNN3KRWFBUHE').then((response3) => {
+		return response3.json();
+	}).then(response4=> {
+  var eth  = response4.result.ethusd;
+
+  let percent = document.getElementById("percent").value;
+  let total = document.getElementById("ordertotal").value;
+
+    var tip = ( percent/ 100) * total;
+    let ethprice = total/eth;
+
+    document.getElementById("tip").innerHTML = "$"+tip;
+    document.getElementById("ethprice").innerHTML ="Ξ"+ethprice;
+	})
+}
+
+    </script>
+</body>
+</html>
