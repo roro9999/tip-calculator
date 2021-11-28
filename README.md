@@ -13,8 +13,3 @@
 Head over to [Etherscan](https://etherscan.io/) to create a free API key and place it into the code.
 
 Now the order total can be shown in ETH, And changes on the current price of ETH
-
-
------------------
-
-Twitter: [@roroAI0](https://twitter.com/roroAI0)
