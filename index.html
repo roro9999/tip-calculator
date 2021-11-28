@@ -11,6 +11,8 @@
 <body>
     <div class="container">
 <div class="items">
+  
+  
     <p class="title" id="title" ><b>Calculate your tip</b></p>
     <input type="text" id="ordertotal" name="ordertotal" placeholder="$ Order total" class="input"><br><br>
     <input type="text" id="percent" name="percent" placeholder="% Percent" class="input"><br><br>
@@ -19,15 +21,20 @@
     <div class="squere">
         <p class="title-2" id="title-2" >Tip</p>
         <p id=tip></p>
-
     </div>
+    <div class="squere">
+      <p class="title-2" id="title-2" >Order total</p>
+      <p id="ordertotal-2"></p>
+        </div>
     <div class="squere">
 <img src = "eth.svg" width="30px" style="margin-top: 20px; margin-left: 128px;">
 <p id="ethprice"></p>
-
   </div>
+
+
 </div>
     </div>
+
 
     <script>
         const inputs = document.querySelectorAll("input, select")
@@ -57,19 +64,21 @@ function get(id) {
 
     <script>
      function tip(){
-		fetch('https://api.etherscan.io/api?module=stats&action=ethprice&apikey=RYRBVKC5AZ7C39H3CJXSH2ZNN3KRWFBUHE').then((response3) => {
+		fetch('https://api.etherscan.io/api?module=stats&action=ethprice&apikey=').then((response3) => {
 		return response3.json();
 	}).then(response4=> {
   var eth  = response4.result.ethusd;
 
-  let percent = document.getElementById("percent").value;
-  let total = document.getElementById("ordertotal").value;
-
+  var percent = document.getElementById("percent").value;
+  var total = document.getElementById("ordertotal").value;
     var tip = ( percent/ 100) * total;
-    let ethprice = total/eth;
+    var ordertotal = +total + +tip;
+    let ethprice = ordertotal/eth;
 
     document.getElementById("tip").innerHTML = "$"+tip;
     document.getElementById("ethprice").innerHTML ="Ξ"+ethprice;
+    document.getElementById("ordertotal-2").innerHTML ="$"+ordertotal;
+
 	})
 }
 
