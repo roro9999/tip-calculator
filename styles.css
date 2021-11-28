@@ -1,8 +1,6 @@
 body{
     background-color: #ffffff;
     font-family: 'Inter', sans-serif;
-    overflow: hidden;
-
 }
 .container{
     width: 100%;
@@ -12,7 +10,7 @@ body{
     justify-content: center;
 }
 .items{
-    margin-top: 5%;
+    margin-top: 2%;
 }
 .input{
     width: 280px;
@@ -35,7 +33,7 @@ body{
     font-weight: bold;
 }
 .title{
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 25px;
     color: #303030;
 }
@@ -51,16 +49,16 @@ hr{
     border: 1px solid #e0e0e0;
 }
 #tip{
-    color: #71d890;
+    color: #3f66e7;
     text-align: center;
     font-weight: bold;
     margin-top: 0px;
     padding-top: 0px;
-    font-size: 22px;
+    font-size: 18px;
 }
 .squere{
     width: 290px;
-    height: 100px;
+    height: 90px;
     background-color: #F7F7F7;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
@@ -72,5 +70,13 @@ hr{
     font-weight: bold;
     margin-top: 8px;
     padding-top: 0px;
-    font-size: 20px;
+    font-size: 18px;
+}
+#ordertotal-2{
+    color: #3fe77f;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 18px;
 }
