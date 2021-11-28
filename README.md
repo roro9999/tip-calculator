@@ -1,12 +1,12 @@
 # Tip Calculator
-A new a simple way to find the correct amount of tip to leave someone
+> A new a simple way to find the correct amount of tip to leave someone
 
 # Getting started
 
-> Download the files
-> Open with live server (VSC)
-> Input your order total and tip percent
-> Click calculate
+1.) Download the files
+2.) Open with live server (VSC) 
+3.) Input your order total and tip percent
+4.) Click calculate
 
 # Using Etherscan API
 
